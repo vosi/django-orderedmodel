@@ -18,13 +18,13 @@ class OrderedModelAdmin(admin.ModelAdmin):
         return my_urls + super(OrderedModelAdmin, self).get_urls()
 
     def reorder(self, item):
-        button = '<a href="{{0}}/move_{{1}}"><img class="ctl arr_{{1}}" src="{0}admin/img/arrow-{{1}}.gif" border="0" alt="{{1}}" /></a>'.format(
+        button = '<a href="{0}/move_{1}"><img class="ctl arr_{1}" src="{0}admin/img/arrow-{1}.gif" border="0" alt="{1}" /></a>'.format(
             settings.STATIC_URL)
 
         html = '<style type="text/css"> '\
-               '.ctl \{ width: 14px; height: 12px; display: inline-block; \} '\
-               '.arr_up \{ background: url(\'{0}admin/img/sorting-icons.gif\') -5px -50px no-repeat; \} '\
-               '.arr_down \{ background: url(\'{0}admin/img/sorting-icons.gif\') -5px -94px no-repeat; \} '\
+               '.ctl {{ width: 14px; height: 12px; display: inline-block; }} '\
+               '.arr_up {{ background: url(\'{0}admin/img/sorting-icons.gif\') -5px -50px no-repeat; }} '\
+               '.arr_down {{ background: url(\'{0}admin/img/sorting-icons.gif\') -5px -94px no-repeat; }} '\
                '</style>'.format(settings.STATIC_URL)
         html += button.format(item.pk, 'down')
         html += '&nbsp;' + button.format(item.pk, 'up')
