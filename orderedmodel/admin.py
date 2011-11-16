@@ -18,7 +18,7 @@ class OrderedModelAdmin(admin.ModelAdmin):
         return my_urls + super(OrderedModelAdmin, self).get_urls()
 
     def reorder(self, item):
-        button = '<a href="{0}/move_{{1}}"><img class="ctl arr_{{1}}" src="{0}admin/img/arrow-{{1}}.gif" border="0" /></a>'.format(
+        button = '<a href="{{0}}/move_{{1}}"><img class="ctl arr_{{1}}" src="{0}admin/img/arrow-{{1}}.gif" border="0" /></a>'.format(
             settings.STATIC_URL)
 
         html = '<style type="text/css"> '\
