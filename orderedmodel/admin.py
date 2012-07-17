@@ -32,6 +32,7 @@ class OrderedModelAdmin(admin.ModelAdmin):
 
     reorder.allow_tags = True
     reorder.short_description = _('Reorder')
+    reorder.admin_order_field = 'order'
 
     def move_down(self, request, pk):
         if self.has_change_permission(request):
