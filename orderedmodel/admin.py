@@ -43,7 +43,7 @@ class OrderedModelAdmin(admin.ModelAdmin):
                 pass
             else:
                 self.model.swap(item, next_item)
-        return HttpResponseRedirect('../../')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '../../'))
 
     def move_up(self, request, pk):
         if self.has_change_permission(request):
@@ -54,4 +54,4 @@ class OrderedModelAdmin(admin.ModelAdmin):
                 pass
             else:
                 self.model.swap(item, prev_item)
-        return HttpResponseRedirect('../../')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '../../'))
