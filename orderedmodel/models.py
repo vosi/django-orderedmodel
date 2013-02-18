@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 
 
 class OrderedModel(models.Model):
-    order = models.PositiveIntegerField(db_index=True, blank=True, unique=True)
+    order = models.PositiveIntegerField(db_index=True, blank=True)
     class Meta:
         abstract = True
         ordering = ['order']
